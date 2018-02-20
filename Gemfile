@@ -23,6 +23,8 @@ gem 'knock'
 
 gem 'seed_dump'
 
+gem 'unirest'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
