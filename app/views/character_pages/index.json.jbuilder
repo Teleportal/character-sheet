@@ -1,1 +1,1 @@
-json.array! @character_pages, partial: "character_pages", as: :character_page
+json.array! @character_pages, partial: "character_page", as: :character_page

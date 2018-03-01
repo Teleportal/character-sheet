@@ -1,1 +1,1 @@
-json.partial! @character_page, partial: "character_pages", as: :character_page
+json.partial! @character_page, partial: "character_page", as: :character_page

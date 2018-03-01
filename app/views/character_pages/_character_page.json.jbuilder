@@ -1,18 +1,34 @@
-json.id @character_page.id
-json.name @character_page.name
-json.strength @character_page.strength
-json.dexterity @character_page.dexterity
-json.constitution @character_page.constitution
-json.intelligence @character_page.intelligence
-json.wisdom @character_page.wisdom
-json.charisma @character_page.charisma
-json.level @character_page.level
-json.alignment @character_page.alignment
-json.personality @character_page.personality
-json.ideals @character_page.ideals
-json.bonds @character_page.bonds
-json.flaws @character_page.flaws
-json.money @character_page.money
-json.race_id @character_page.race_id
-json.background_id @character_page.background_id
-json.klass_id @character_page.klass_id
+json.id character_page.id
+json.user character_page.user
+json.name character_page.name
+json.hit_points character_page.hit_points
+json.armor_class character_page.armor_class
+json.strength character_page.strength
+json.str character_page.str_mod
+json.dexterity character_page.dexterity
+json.dex character_page.dex_mod
+json.constitution character_page.constitution
+json.con character_page.con_mod
+json.intelligence character_page.intelligence
+json.int character_page.int_mod
+json.wisdom character_page.wisdom
+json.wis character_page.wis_mod
+json.charisma character_page.charisma
+json.cha character_page.cha_mod
+json.level character_page.level
+json.proficiency_bonus character_page.proficiency_bonus
+json.skills character_page.skill_tests.each do |skill_test|
+  json.name skill_test.skill.name
+  json.ability skill_test.skill.ability
+  json.bonus skill_test.bonus
+end
+json.passive_perception character_page.passive_perception
+json.alignment character_page.alignment
+json.personality character_page.personality
+json.ideals character_page.ideals
+json.bonds character_page.bonds
+json.flaws character_page.flaws
+json.money character_page.money
+json.race_id character_page.race_id
+json.background_id character_page.background_id
+json.klass_id character_page.klass_id

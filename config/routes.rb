@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   get '/character_sheets/:id' => 'character_pages#show'
   patch '/character_sheets/:id' => 'character_pages#update'
   delete '/character_sheets/:id' => 'character_pages#destroy'
+
+  get '/skills' => 'skills#index'
+  get '/skills/:id' => 'skills#show'
+
+  post '/skill_tests' => 'skill_tests#create'
+  patch '/skill_tests' => 'skill_tests#update'
 end

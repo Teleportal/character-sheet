@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218221826) do
+ActiveRecord::Schema.define(version: 20180301030906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "background_skills", force: :cascade do |t|
+    t.integer "background_id"
+    t.integer "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "backgrounds", force: :cascade do |t|
+    t.string "name"
+    t.text "features"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "character_pages", force: :cascade do |t|
     t.integer "user_id"
@@ -36,6 +50,22 @@ ActiveRecord::Schema.define(version: 20180218221826) do
     t.text "flaws"
     t.integer "race_id"
     t.integer "money"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skill_tests", force: :cascade do |t|
+    t.integer "character_page_id"
+    t.integer "skill_id"
+    t.boolean "proficient"
+    t.integer "bonus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "ability"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
