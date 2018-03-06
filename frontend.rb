@@ -126,6 +126,9 @@ while true
     response = Unirest.post("http://localhost:3000/character_sheets", parameters: params)
     character = response.body
 
+    background = Unirest.get("http://localhost:3000/background/#{character['background']['id']}")
+    klass = Unirest.get("http://localhost:3000/class/#{character['klass']['id']}").body
+
     puts
     puts "- Pick skills to be proficient in (y/n):"
     i = 1

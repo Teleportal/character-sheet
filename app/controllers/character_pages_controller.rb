@@ -26,10 +26,13 @@ class CharacterPagesController < ApplicationController
                                         flaws: params[:flaws],
                                         race_id: params[:race_id],
                                         money: params[:money],
-                                        armor_class: params[:armor_class],
-                                        hit_points: params[:hit_points]
+                                        # armor_class: params[:armor_class],
+                                        # hit_points: params[:hit_points]
                                         )
     
+    @character_page.armor_class = @character_page.calculate_armor_class
+    @character_page.hit_points = @character_page.calculate_hit_points
+
     # if @character_page.save
     #   18.times do |i|
     #     skill_test = SkillTest.new(

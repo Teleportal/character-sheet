@@ -3,6 +3,8 @@ class CharacterPage < ApplicationRecord
   has_many :skill_tests
   has_many :skills, through: :skill_tests
   belongs_to :background
+  belongs_to :klass
+  belongs_to :race
 
   def modifier(ability)
     return (ability - 10) / 2
@@ -49,12 +51,28 @@ class CharacterPage < ApplicationRecord
     dex_mod
   end
 
+  def melee_attack_bonus
+    str_mod + proficiency_bonus
+  end
+
+  def ranged_attack_bonus
+    dex_mod + proficiency_bonus
+  end
+
   def calculate_armor_class
     10 + dex_mod
   end
 
+  def speed
+    self.race.speed
+  end
+
   def calculate_hit_points
-    #need hit die, so need class
+    if level == 1
+      return self.klass.hit_die + con_mod
+    else
+      return self.klass.hit_die + con_mod + (((self.klass.hit_die / 2) + con_mod) * (level - 1))
+    end
   end
 
 end

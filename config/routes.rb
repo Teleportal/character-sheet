@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get '/skills' => 'skills#index'
   get '/skills/:id' => 'skills#show'
 
+  get '/skill_tests' => 'skill_tests#index'
   post '/skill_tests' => 'skill_tests#create'
   patch '/skill_tests' => 'skill_tests#update'
+
+  get 'class/:id' => 'klasses#show'
+
+  get 'background/:id' => 'backgrounds#show'
 end

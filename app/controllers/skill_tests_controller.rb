@@ -1,5 +1,14 @@
 class SkillTestsController < ApplicationController
 
+  def index
+    @skill_tests = SkillTest.where(character_page_id: 1, proficient: true)
+    skills = []
+    @skill_tests.each do |skill_test|
+      skills << skill_test.skill.name
+    end
+    render json: skills
+  end
+
   def create
     @skill_test = SkillTest.new(
                                   skill_id: params[:skill_id],

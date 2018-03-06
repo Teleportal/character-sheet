@@ -1,0 +1,13 @@
+
+Klass.find(1).update(name: "Barbarian", hit_die: 12, save_1: 1, save_2: 3, number_of_skills: 2)
+Klass.find(2).update(name: "Bard", hit_die: 8, save_1: 2, save_2: 6, number_of_skills: 3)
+Klass.find(3).update(name: "Cleric", hit_die: 8, save_1: 5, save_2: 6, number_of_skills: 2)
+Klass.find(4).update(name: "Druid", hit_die: 8, save_1: 4, save_2: 5, number_of_skills: 2)
+Klass.find(5).update(name: "Fighter", hit_die: 10, save_1: 1, save_2: 3, number_of_skills: 2)
+Klass.find(6).update(name: "Monk", hit_die: 8, save_1: 1, save_2: 2, number_of_skills: 2)
+Klass.find(7).update(name: "Paladin", hit_die: 10, save_1: 5, save_2: 6, number_of_skills: 2)
+Klass.find(8).update(name: "Ranger", hit_die: 10, save_1: 1, save_2: 2, number_of_skills: 3)
+Klass.find(9).update(name: "Rogue", hit_die: 8, save_1: 2, save_2: 4, number_of_skills: 4)
+Klass.find(10).update(name: "Sorcerer", hit_die: 6, save_1: 3, save_2: 6, number_of_skills: 2)
+Klass.find(11).update(name: "Warlock", hit_die: 8, save_1: 5, save_2: 6, number_of_skills: 2)
+Klass.find(12).update(name: "Wizard", hit_die: 6, save_1: 4, save_2: 5, number_of_skills: 2)
