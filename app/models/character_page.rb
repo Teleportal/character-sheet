@@ -60,7 +60,7 @@ class CharacterPage < ApplicationRecord
   end
 
   def calculate_armor_class
-    10 + dex_mod
+    self.armor_class = 10 + dex_mod
   end
 
   def speed
@@ -69,9 +69,9 @@ class CharacterPage < ApplicationRecord
 
   def calculate_hit_points
     if level == 1
-      return self.klass.hit_die + con_mod
+      self.hit_points =  self.klass.hit_die + con_mod
     else
-      return self.klass.hit_die + con_mod + (((self.klass.hit_die / 2) + con_mod) * (level - 1))
+      self.hit_points =  self.klass.hit_die + con_mod + (((self.klass.hit_die / 2) + con_mod) * (level - 1))
     end
   end
 
