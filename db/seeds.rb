@@ -13,6 +13,7 @@ Modifier.create(ability: "charisma", offset: 1) #id: 11
 Modifier.create(ability: "charisma", offset: 2) #id: 12
 
 
+# RACES (and subraces)
 
 # Dwarf Traits
 
@@ -74,18 +75,18 @@ Feature.create(classifiable_id: 7, classifiable_type: "Subrace", name: "Stout Re
 
 
 # Human Traits
-Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 1, name: "Ability Score Increase (str)", description: "Your ability scores each increase by 1.", level_requirement: 0)
-Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 3, name: "Ability Score Increase (dex)", description: "Your ability scores each increase by 1.", level_requirement: 0)
-Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 5, name: "Ability Score Increase (con)", description: "Your ability scores each increase by 1.", level_requirement: 0)
-Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 7, name: "Ability Score Increase (int)", description: "Your ability scores each increase by 1.", level_requirement: 0)
-Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 9, name: "Ability Score Increase (wis)", description: "Your ability scores each increase by 1.", level_requirement: 0)
-Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 11, name: "Ability Score Increase (cha)", description: "Your ability scores each increase by 1.", level_requirement: 0)
+Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 1, name: "Ability Score Increase", description: "Your ability scores each increase by 1.", level_requirement: 0)
+Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 3, name: "Ability Score Increase", description: "Your ability scores each increase by 1.", level_requirement: 0)
+Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 5, name: "Ability Score Increase", description: "Your ability scores each increase by 1.", level_requirement: 0)
+Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 7, name: "Ability Score Increase", description: "Your ability scores each increase by 1.", level_requirement: 0)
+Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 9, name: "Ability Score Increase", description: "Your ability scores each increase by 1.", level_requirement: 0)
+Feature.create(classifiable_id: 4, classifiable_type: "Race", modifier_id: 11, name: "Ability Score Increase", description: "Your ability scores each increase by 1.", level_requirement: 0)
 
 
 # Dragonborn Traits
 
-Feature.create(classifiable_id: 5, classifiable_type: "Race", modifier_id: 2, name: "Ability Score Increase (str)", description: "Your Strength score increases by 2...", level_requirement: 0)
-Feature.create(classifiable_id: 5, classifiable_type: "Race", modifier_id: 2, name: "Ability Score Increase (cha)", description: "...and your Charisma score increases by 1.", level_requirement: 0)
+Feature.create(classifiable_id: 5, classifiable_type: "Race", modifier_id: 2, name: "Ability Score Increase", description: "Your Strength score increases by 2...", level_requirement: 0)
+Feature.create(classifiable_id: 5, classifiable_type: "Race", modifier_id: 2, name: "Ability Score Increase", description: "...and your Charisma score increases by 1.", level_requirement: 0)
 Feature.create(classifiable_id: 5, classifiable_type: "Race", name: "Draconic Ancestry", description: "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type.", level_requirement: 0)
 Feature.create(classifiable_id: 5, classifiable_type: "Race", name: "Breath Weapon", description: "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation. When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can’t use it again until you complete a short or long rest.", level_requirement: 0)
 Feature.create(classifiable_id: 5, classifiable_type: "Race" name: "Damage Resistance", description: "You have resistance to the damage type associated with your draconic ancestry.", level_requirement: 0)
@@ -125,5 +126,91 @@ Feature.create(classifiable_id: 8, classifiable_type: "Race", name: "Savage Atta
 
 
 # Tiefling Traits
+Feature.create(classifiable_id: 9, classifiable_type: "Race", modifier_id: 7, name: "Ability Score Increase", description: "Your Intelligence score increases by 1...", level_requirement: 0)
+Feature.create(classifiable_id: 9, classifiable_type: "Race", modifier_id: 12, name: "Ability Score Increase", description: "...and your Charisma score increases by 2", level_requirement: 0)
+Feature.create(classifiable_id: 9, classifiable_type: "Race", name: "Darkvision", description: "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.", level_requirement: 0)
+Feature.create(classifiable_id: 9, classifiable_type: "Race", name: "Hellish Resistance", description: "You have resistance to fire damage.", level_requirement: 0)
+Feature.create(classifiable_id: 9, classifiable_type: "Race", name: "Infernal Legacy", description: "You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.", level_requirement: 0)
 
+
+
+# CLASSES
+
+# Barbarian Features
+
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Armor Proficiencies", description: "Light armor, medium armor, shields", level_requirement: 1)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Weapon Proficiencies", description: "Simple weapons, martial weapons", level_requirement: 1)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Rage", description: "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you aren’t wearing heavy armor: 
+You have advantage on Strength checks and Strength saving throws.
+When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.
+You have resistance to bludgeoning, piercing, and slashing damage.
+If you are able to cast spells, you can’t cast them or concentrate on them while raging.
+Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action. Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.", level_requirement: 1)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Unarmored Defense", description: "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.", level_requirement: 1)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Reckless Attack", description: "Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.", level_requirement: 2)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Danger Sense", description: "At 2nd level, you gain an uncanny sense of when things nearby aren’t as they should be, giving you an edge when you dodge away from danger. You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can’t be blinded, deafened, or incapacitated.", level_requirement: 2)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Primal Path", description: "At 3rd level, you choose a path that shapes the nature of your rage. Choose the Path of the Berserker or the Path of the Totem Warrior. Your choice grants you features at 3rd level, and again at 6th, 10th, and 14th levels.", level_requirement: 3)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Ability Score Improvement", description: "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.", level_requirement: 4)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Extra Attack", description: "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.", level_requirement: 5)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Fast Movement", description: "Starting at 5th level, your speed increases by 10 feet while you aren’t wearing heavy armor.", level_requirement: 5)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Feral Instincts", description: "By 7th level, your instincts are so honed that you have advantage on initiative rolls. Additionally, if you are surprised at the beginning of combat and aren’t incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.", level_requirement: 7)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Brutal Critical", description: "Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to two additional dice at 13th level and three additional dice at 17th level.", level_requirement: 9)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Relentless Rage", description: "Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you’re raging and don’t die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.", level_requirement: 11)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Persistent Rage", description: "Beginning at 15th level, your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.", level_requirement: 15)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Indomitable Might", description: "Beginning at 18th level, if your total for a Strength check is less than your Strength score, you can use that score in place of the total.", level_requirement: 18)
+Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Primal Champion", description: "At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.", level_requirement: 20)
+
+
+# Bard Features
+
+Feaure.create(classifiable_id: 2, classifiable_type: "Klass", name: "Armor Proficiencies", description: "Light armor", level_requirement: 1)
+Feaure.create(classifiable_id: 2, classifiable_type: "Klass", name: "Weapon Proficiencies", description: "Simple weapons, hand crossbows, longswords, rapiers, shortswords", level_requirement: 1)
+Feaure.create(classifiable_id: 2, classifiable_type: "Klass", name: "Tool Proficiencies", description: "Three musical instruments of your choice", level_requirement: 1)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Spellcasting", description: "You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations.", level_requirement: 1)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Bardic Inspiration", description: "You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6. Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the GM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest. Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.", level_requirement: 1)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Jack of All Trades", description: "Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn’t already include your proficiency bonus.", level_requirement: 2) #Yeah gonna have to code this one in.
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Song of Rest", description: "Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points. The extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level.", level_requirement: 2)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Bard College", description: "At 3rd level, you delve into the advanced techniques of a Bardic College. Your choice grants you features at 3rd level and again at 6th and 14th level.", level_requirement: 3)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Expertise", description: "At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 10th level, you can choose another two skill proficiencies to gain this benefit.", level_requirement: 3) # >:[
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Ability Score Improvement", description: "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.", level_requirement: 4)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Font of Inspiration", description: "Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.", level_requirement: 5)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Countercharm", description: "At 6th level, you gain the ability to use musical notes or words of power to disrupt mind-influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required).", level_requirement: 6)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Magical Secrets", description: "By 10th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any class, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip. The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table. You learn two additional spells from any class at 14th level and again at 18th level.", level_requirement: 10)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Superior Inspiration", description: "At 20th level, when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.", level_requirement: 10)
+
+
+# Cleric Features
+
+Feature.create(classifiable_id: 3, classifiable_type: "Klass", name: "Armor Proficiencies", description: "Light armor, medium armor, shields", level_requirement: 1)
+Feature.create(classifiable_id: 3, classifiable_type: "Klass", name: "Weapon Proficiencies", description: "Simple weapons", level_requirement: 1)
+Feature.create(classifiable_id: 3, classifiable_type: "Klass", name: "Spellcasting", description: "As a conduit for divine power, you can cast cleric spells.", level_requirement: 1)
+Feature.create(classifiable_id: 3, classifiable_type: "Klass", name: "Divine Domain", description: "Choose one domain related to your deity. Your chosen domain grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.", level_requirement: 1)
+Feature.create(classifiable_id: 3, classifiable_type: "Klass", name: "Channel Divinity", description: "At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description. When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again. Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC. Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.", level_requirement: 2)
+Feature.create(classifiable_id: 3, classifiable_type: "Klass", name: "Ability Score Improvement", description: "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.", level_requirement: 4)
+Feature.create(classifiable_id: 3, classifiable_type: "Klass", name: "Destroy Undead", description: "Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.", level_requirement: 5)
+Feature.create(classifiable_id: 3, classifiable_type: "Klass", name: "Divine Intervention", description: "Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great. Imploring your deity’s aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The GM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can’t use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.", level_requirement: 10)
+
+
+
+# Druid Features
+
+Feature.create(classifiable_id: 4, classifiable_type: "Klass", name: "Armor Proficiencies", description: "Light armor, medium armor, shields (druids will not wear armor or use shields made of metal", level_requirement: 1)
+Feature.create(classifiable_id: 4, classifiable_type: "Klass", name: "Weapon Proficiencies", description: "Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears", level_requirement: 1)
+Feature.create(classifiable_id: 4, classifiable_type: "Klass", name: "Tool Proficiencies", description: "Herbalism kit", level_requirement: 1)
+
+# Fighter Features
+
+# Monk Features
+
+# Paladin Features
+
+# Ranger Features
+
+# Rogue Features
+
+# Sorceror Features
+
+# Warlock Features
+
+# Wizard Features
 
