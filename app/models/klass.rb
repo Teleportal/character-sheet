@@ -1,5 +1,6 @@
 class Klass < ApplicationRecord
   has_many :character_pages
+  has_many :features, :as => :classifiable
   has_many :class_skills
   has_many :skills, through: :class_skills
   

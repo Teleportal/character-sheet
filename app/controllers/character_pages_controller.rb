@@ -25,29 +25,12 @@ class CharacterPagesController < ApplicationController
                                         bonds: params[:bonds],
                                         flaws: params[:flaws],
                                         race_id: params[:race_id],
-                                        money: params[:money],
-                                        # armor_class: params[:armor_class],
-                                        # hit_points: params[:hit_points]
+                                        money: params[:money]
                                         )
     
     @character_page.armor_class = @character_page.calculate_armor_class
     @character_page.hit_points = @character_page.calculate_hit_points
 
-    # if @character_page.save
-    #   18.times do |i|
-    #     skill_test = SkillTest.new(
-    #                               skill_id: i,
-    #                               character_page_id: @character_page.id,
-    #                               proficient: false
-    #                             )
-    #     skill_test.calculate_bonus
-    #     if skill_test.save
-    #     else
-    #       render json: {errors: skill_test.errors.full_messages}, status: :bad_request
-    #     end
-    #   end
-      
-    # end
     if @character_page.save
       render 'show.json.jbuilder'
     else
@@ -62,6 +45,7 @@ class CharacterPagesController < ApplicationController
 
   def update
     @character_page = CharacterPage.find(params[:id])
+    
     @character_page.name = params[:name] || @character_page.name
     @character_page.strength = params[:strength] || @character_page.strength
     @character_page.dexterity = params[:dexterity] || @character_page.dexterity

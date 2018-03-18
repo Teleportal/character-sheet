@@ -1,5 +1,9 @@
 json.id character_page.id
-json.user character_page.user
+json.user do
+  json.id character_page.user.id
+  json.name character_page.user.name
+  json.email character_page.user.email
+end
 json.name character_page.name
 json.hit_points character_page.hit_points
 json.armor_class character_page.armor_class
@@ -18,11 +22,9 @@ json.cha character_page.cha_mod
 json.level character_page.level
 json.proficiency_bonus character_page.proficiency_bonus
 if character_page.skill_tests.present?
-  json.skills character_page.skill_tests.each do |skill_test|
-    json.name skill_test.skill.name
-    json.ability skill_test.skill.ability
-    json.bonus skill_test.bonus
-  end
+  json.skills do
+    json.array! character_page.skill_tests, partial: 'skill_test', as: :skill_test
+  end 
   json.passive_perception character_page.passive_perception
 end
 json.alignment character_page.alignment
@@ -36,26 +38,13 @@ json.race do
   json.name character_page.race.name
 end
 json.background do
-  json.id character_page.background.id
-  json.name character_page.background.name
-  json.features character_page.background.features_array
-  json.skills character_page.background.skills.each do |skill|
-    json.id skill.id
-    json.name skill.name
-    json.ability skill.ability
-  end
+  json.partial! character_page.background, partial: 'backgrounds/background', as: :background
 end
 json.klass do
-  json.id character_page.klass.id
-  json.name character_page.klass.name
-  json.hit_die character_page.klass.hit_die
-  json.save_1 character_page.klass.save_1
-  json.save_2 character_page.klass.save_2
-  json.number_of_skills character_page.klass.number_of_skills
-    json.skills character_page.klass.skills.each do |skill|
-    json.id skill.id
-    json.name skill.name
-    json.ability skill.ability
-  end
+  json.partial! character_page.klass, partial: 'klasses/klass', as: :klass
 end
-json.speed character_page.race.speed
+json.speed character_page.speed
+
+json.backstory character_page.backstory
+json.inventory character_page.inventory
+json.notes character_page.notes

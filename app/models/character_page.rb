@@ -6,6 +6,19 @@ class CharacterPage < ApplicationRecord
   belongs_to :klass
   belongs_to :race
 
+  validates :strength, numericality: { only_integer: true, greather_than: 0 }
+  validates :dexterity, numericality: { only_integer: true, greather_than: 0 }
+  validates :constitution, numericality: { only_integer: true, greather_than: 0 }
+  validates :intelligence, numericality: { only_integer: true, greather_than: 0 }
+  validates :wisdom, numericality: { only_integer: true, greather_than: 0 }
+  validates :charisma, numericality: { only_integer: true, greather_than: 0 }
+  validates :level, numericality: { only_integer: true, greather_than_or_equal_to: 1 }
+  validates_associated :race
+  validates_associated :background
+  validates_associated :klass
+  validates :money, presence: true
+  validates :alignment, format: { with: /([LNC][GNE]|N)/ }
+
   def modifier(ability)
     return (ability - 10) / 2
   end
@@ -73,6 +86,11 @@ class CharacterPage < ApplicationRecord
     else
       self.hit_points =  self.klass.hit_die + con_mod + (((self.klass.hit_die / 2) + con_mod) * (level - 1))
     end
+  end
+
+  def level_up
+    level += 1
+    calculate_hit_points
   end
 
 end

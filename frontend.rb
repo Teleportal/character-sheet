@@ -126,137 +126,170 @@ while true
     response = Unirest.post("http://localhost:3000/character_sheets", parameters: params)
     character = response.body
 
-    background = Unirest.get("http://localhost:3000/background/#{character['background']['id']}")
-    klass = Unirest.get("http://localhost:3000/class/#{character['klass']['id']}").body
+    # background = Unirest.get("http://localhost:3000/background/#{character['background']['id']}").body
+    # klass = Unirest.get("http://localhost:3000/class/#{character['klass']['id']}").body
+    skill_choices = []
 
-    puts
-    puts "- Pick skills to be proficient in (y/n):"
-    i = 1
-    skill_pro = false
-    print "1. Acrobatics: "
-    if gets.chomp == "y"
-      skill_pro = true
+    back_skills = character['background']['skills']
+    puts "You get these skills from you background:"
+    back_skills.each do |option|
+      puts "#{option.['name']}: #{option['id']}"
+      skill_choices << option['id']
     end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "2. Animal Handling: "
-    if gets.chomp == "y"
-      skill_pro = true
+
+    skill_options = character['klass']['skills']
+    num_skills = character['klass']['number_of_skills']
+
+    puts "Here are your skills options from your class:"
+    skill_options.each do |option|
+      if !skill_choices.include?(option['id'])
+        puts "#{option.['name']}: #{option['id']}" 
+      end
     end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "3. Arcana: "
-    if gets.chomp == "y"
-      skill_pro = true
+    puts "Please input the ids of the #{num_skills} skills you want"
+    
+    while num_skills > 0
+      skill_choices << gets.chomp
+      num_skills -= 1
     end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "4. Athletics: "
-    if gets.chomp == "y"
-      skill_pro = true
+
+    18.times do |i|
+      if skill_choices.include?(i)
+        Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: true})
+      else
+        Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: false})
+      end
     end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "5. Deception: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "6. History: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "7. Insight: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "8. Intimidation: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "9. Investigation: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "10. Medicine: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "11. Nature: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "12. Perception: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "13. Performance: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "14. Persuasion: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "15. Religion: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "16. Sleight of Hand: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "17. Stealth: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
-    i += 1
-    skill_pro = false
-    print "18. Survival: "
-    if gets.chomp == "y"
-      skill_pro = true
-    end
-    response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+
+    # Old skilltest posts
+      # puts
+      # puts "- Pick skills to be proficient in (y/n):"
+      # i = 1
+      # skill_pro = false
+      # print "1. Acrobatics: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "2. Animal Handling: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "3. Arcana: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "4. Athletics: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "5. Deception: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "6. History: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "7. Insight: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "8. Intimidation: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "9. Investigation: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "10. Medicine: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "11. Nature: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "12. Perception: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "13. Performance: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "14. Persuasion: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "15. Religion: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "16. Sleight of Hand: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "17. Stealth: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
+      # i += 1
+      # skill_pro = false
+      # print "18. Survival: "
+      # if gets.chomp == "y"
+      #   skill_pro = true
+      # end
+      # response = Unirest.post("http://localhost:3000/skill_tests", parameters: {skill_id: i, character_page_id: character[:id], proficient: skill_pro})
 
     character = Unirest.get("http://localhost:3000/character_sheets/#{character['id']}").body
 
