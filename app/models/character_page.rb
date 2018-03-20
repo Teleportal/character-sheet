@@ -93,36 +93,38 @@ class CharacterPage < ApplicationRecord
     calculate_hit_points
   end
 
-  # def features_and_traits
-  #   features_array = []
-  #   race.features.each do |feature|
-  #     if feature.modifier_id == nil
-  #       features_array << [feature.classifiable, feature.name, feature.description, feature.level_requirement]
-  #     else
-  #       features_array << [feature.classifiable, feature.name, feature.description, feature.modifier, feature.level_requirement]
-  #     end
-  #   end
-  #   if subrace
-  #     subrace.features.each do |feature|
-  #       if feature.modifier_id == nil
-  #         features_array << [feature.classifiable, feature.name, feature.description, feature.level_requirement]
-  #       else
-  #         features_array << [feature.classifiable, feature.name, feature.description, feature.modifier, feature.level_requirement]
-  #       end
-  #     end
-  #   end
+  def features_and_traits
+    features_array = []
+    race.features.each do |feature|
+      if feature.modifier_id == nil
+        features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, level_requirement: feature.level_requirement}
+      else
+        features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, modifier: {ability: feature.modifier.ability, bonus: feature.modifier.offset}, level_requirement: feature.level_requirement}
+      end
+    end
+    # if subrace
+    #   subrace.features.each do |feature|
+    #     if feature.modifier_id == nil
+    #       features_array << [feature.classifiable, feature.name, feature.description, feature.level_requirement]
+    #     else
+    #       features_array << [feature.classifiable, feature.name, feature.description, feature.modifier, feature.level_requirement]
+    #     end
+    #   end
+    # end
 
 
-  #   klass.features.each do |feature|
-  #     if feature.modifier_id == nil
-  #       features_array << [feature.classifiable, feature.name, feature.description, feature.level_requirement]
-  #     else
-  #       features_array << [feature.classifiable, feature.name, feature.description, feature.modifier, feature.level_requirement]
-  #     end
-  #   end 
+    klass.features.each do |feature|
+      if feature.level_requirement <= level
+        if feature.modifier_id == nil
+          features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, level_requirement: feature.level_requirement}
+        else
+          features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, modifier: {ability: feature.modifier.ability, bonus: feature.modifier.offset}, level_requirement: feature.level_requirement}
+        end
+      end
+    end 
 
-  #   return features_array
-  # end
+    return features_array
+  end
 
   # def race_check
   #   num_increases = race.features.where(name = "Ability Score Increase").length

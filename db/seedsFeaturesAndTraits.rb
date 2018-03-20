@@ -1,18 +1,3 @@
-#Ability Score Modifiers
-Modifier.create(ability: "strength", offset: 1) #id: 1
-Modifier.create(ability: "strength", offset: 2) #id: 2
-Modifier.create(ability: "dexterity", offset: 1) #id: 3
-Modifier.create(ability: "dexterity", offset: 2) #id: 4
-Modifier.create(ability: "constitution", offset: 1) #id: 5
-Modifier.create(ability: "constitution", offset: 2) #id: 6
-Modifier.create(ability: "intelligence", offset: 1) #id: 7
-Modifier.create(ability: "intelligence", offset: 2) #id: 8
-Modifier.create(ability: "wisdom", offset: 1) #id: 9
-Modifier.create(ability: "wisdom", offset: 2) #id: 10
-Modifier.create(ability: "charisma", offset: 1) #id: 11
-Modifier.create(ability: "charisma", offset: 2) #id: 12
-
-
 # RACES (and subraces)
 
 # Dwarf Traits
@@ -89,7 +74,7 @@ Feature.create(classifiable_id: 5, classifiable_type: "Race", modifier_id: 2, na
 Feature.create(classifiable_id: 5, classifiable_type: "Race", modifier_id: 2, name: "Ability Score Increase", description: "...and your Charisma score increases by 1.", level_requirement: 0)
 Feature.create(classifiable_id: 5, classifiable_type: "Race", name: "Draconic Ancestry", description: "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type.", level_requirement: 0)
 Feature.create(classifiable_id: 5, classifiable_type: "Race", name: "Breath Weapon", description: "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation. When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can’t use it again until you complete a short or long rest.", level_requirement: 0)
-Feature.create(classifiable_id: 5, classifiable_type: "Race" name: "Damage Resistance", description: "You have resistance to the damage type associated with your draconic ancestry.", level_requirement: 0)
+Feature.create(classifiable_id: 5, classifiable_type: "Race", name: "Damage Resistance", description: "You have resistance to the damage type associated with your draconic ancestry.", level_requirement: 0)
 
 
 # Gnome Traits
@@ -103,9 +88,9 @@ Feature.create(classifiable_id: 8, classifiable_type: "Subrace", modifier_id: 3,
 Feature.create(classifiable_id: 8, classifiable_type: "Subrace", name: "Natural Illusionist", description: "You know the minor illusion cantrip. Intelligence is your spellcasting ability for it.", level_requirement: 0)
 Feature.create(classifiable_id: 8, classifiable_type: "Subrace", name: "Speak with Small Beasts", description: "Through sounds and gestures, you can communicate simple ideas with Small or smallers beasts. Forest gnomes love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets.", level_requirement: 0)
 #Rock Gnome Traits
-Feature.create(classifiable_id: 9, classifiable_type: "Subrace", modifier_id: 5, name: "Ability Score Increase", description: "Your Constitution score increases by 1." level_requirement: 0)
-Feature.create(classifiable_id: 9, classifiable_type: "Subrace", name: "Artificer's Lore", description: "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply." level_requirement: 0)
-Feature.create(classifiable_id: 9, classifiable_type: "Subrace", name: "Tinker", description: "You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time." level_requirement: 0)
+Feature.create(classifiable_id: 9, classifiable_type: "Subrace", modifier_id: 5, name: "Ability Score Increase", description: "Your Constitution score increases by 1.", level_requirement: 0)
+Feature.create(classifiable_id: 9, classifiable_type: "Subrace", name: "Artificer's Lore", description: "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.", level_requirement: 0)
+Feature.create(classifiable_id: 9, classifiable_type: "Subrace", name: "Tinker", description: "You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.", level_requirement: 0)
 
 
 # Half-Elf Traits
@@ -163,9 +148,9 @@ Feature.create(classifiable_id: 1, classifiable_type: "Klass", name: "Primal Cha
 
 # Bard Features
 
-Feaure.create(classifiable_id: 2, classifiable_type: "Klass", name: "Armor Proficiencies", description: "Light armor", level_requirement: 1)
-Feaure.create(classifiable_id: 2, classifiable_type: "Klass", name: "Weapon Proficiencies", description: "Simple weapons, hand crossbows, longswords, rapiers, shortswords", level_requirement: 1)
-Feaure.create(classifiable_id: 2, classifiable_type: "Klass", name: "Tool Proficiencies", description: "Three musical instruments of your choice", level_requirement: 1)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Armor Proficiencies", description: "Light armor", level_requirement: 1)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Weapon Proficiencies", description: "Simple weapons, hand crossbows, longswords, rapiers, shortswords", level_requirement: 1)
+Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Tool Proficiencies", description: "Three musical instruments of your choice", level_requirement: 1)
 Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Spellcasting", description: "You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations.", level_requirement: 1)
 Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Bardic Inspiration", description: "You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6. Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the GM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest. Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.", level_requirement: 1)
 Feature.create(classifiable_id: 2, classifiable_type: "Klass", name: "Jack of All Trades", description: "Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn’t already include your proficiency bonus.", level_requirement: 2) #Yeah gonna have to code this one in.

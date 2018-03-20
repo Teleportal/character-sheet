@@ -1,0 +1,1 @@
+json.partial! @race, partial: "race", as: :race

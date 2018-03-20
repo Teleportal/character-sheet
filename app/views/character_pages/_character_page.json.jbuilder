@@ -48,3 +48,5 @@ json.speed character_page.speed
 json.backstory character_page.backstory
 json.inventory character_page.inventory
 json.notes character_page.notes
+
+json.features_and_traits character_page.features_and_traits
