@@ -1,7 +1,6 @@
 class CharacterPagesController < ApplicationController
   def index
-    @character_pages = CharacterPage.all
-    # .where(user_id: current_user.id)
+    @character_pages = CharacterPage.where(user_id: current_user.id)
 
     render 'index.json.jbuilder'
   end

@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def show
+    user = User.find(current_user.id)
+    render json: {name: user.name, email: user.email}
+  end
   
   def create
     user = User.new(

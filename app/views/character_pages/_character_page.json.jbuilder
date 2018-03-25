@@ -21,12 +21,14 @@ json.charisma character_page.charisma
 json.cha character_page.cha_mod
 json.level character_page.level
 json.proficiency_bonus character_page.proficiency_bonus
+json.initiative character_page.initiative
 if character_page.skill_tests.present?
   json.skills do
     json.array! character_page.skill_tests, partial: 'skill_test', as: :skill_test
   end 
   json.passive_perception character_page.passive_perception
 end
+json.saves character_page.saving_throws
 json.alignment character_page.alignment
 json.personality character_page.personality
 json.ideals character_page.ideals
@@ -44,6 +46,7 @@ json.klass do
   json.partial! character_page.klass, partial: 'klasses/klass', as: :klass
 end
 json.speed character_page.speed
+json.hit_dice character_page.hit_dice
 
 json.backstory character_page.backstory
 json.inventory character_page.inventory

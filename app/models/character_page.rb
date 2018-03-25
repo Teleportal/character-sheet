@@ -76,8 +76,45 @@ class CharacterPage < ApplicationRecord
     self.armor_class = 10 + dex_mod
   end
 
+  def saving_throws
+    saves_object = []
+    if klass.save_1 == "strength"
+      saves_object << {name: "Strength", bonus: (str_mod + proficiency_bonus)}
+    elsif klass.save_1 == "dexterity"
+      saves_object << {name: "Dexterity", bonus: (dex_mod + proficiency_bonus)}
+    elsif klass.save_1 == "constitution"
+      saves_object << {name: "Constitution", bonus: (con_mod + proficiency_bonus)}
+    elsif klass.save_1 == "intelligence"
+      saves_object << {name: "Intelligence", bonus: (int_mod + proficiency_bonus)}      
+    elsif klass.save_1 == "wisdom"
+      saves_object << {name: "Wisdom", bonus: (wis_mod + proficiency_bonus)}
+    else
+      saves_object << {name: "Charisma", bonus: (cha_mod + proficiency_bonus)}
+    end
+
+    if klass.save_2 == "str"
+      saves_object << {name: "Strength", bonus: (str_mod + proficiency_bonus)}
+    elsif klass.save_2 == "dex"
+      saves_object << {name: "Dexterity", bonus: (dex_mod + proficiency_bonus)}
+    elsif klass.save_2 == "con"
+      saves_object << {name: "Constitution", bonus: (con_mod + proficiency_bonus)}
+    elsif klass.save_2 == "int"
+      saves_object << {name: "Intelligence", bonus: (int_mod + proficiency_bonus)}
+    elsif klass.save_2 == "wis"
+      saves_object << {name: "Wisdom", bonus: (wis_mod + proficiency_bonus)}
+    elsif klass.save_2 == "cha"
+      saves_object << {name: "Charisma", bonus: (cha_mod + proficiency_bonus)}
+    end
+
+    return saves_object
+  end
+
   def speed
     self.race.speed
+  end
+
+  def hit_dice
+    "#{level}d#{klass.hit_die}"
   end
 
   def calculate_hit_points
@@ -97,9 +134,9 @@ class CharacterPage < ApplicationRecord
     features_array = []
     race.features.each do |feature|
       if feature.modifier_id == nil
-        features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, level_requirement: feature.level_requirement}
+        features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, level_requirement: feature.level_requirement, show: false}
       else
-        features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, modifier: {ability: feature.modifier.ability, bonus: feature.modifier.offset}, level_requirement: feature.level_requirement}
+        features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, modifier: {ability: feature.modifier.ability, bonus: feature.modifier.offset}, level_requirement: feature.level_requirement, show: false}
       end
     end
     # if subrace
@@ -112,13 +149,12 @@ class CharacterPage < ApplicationRecord
     #   end
     # end
 
-
     klass.features.each do |feature|
       if feature.level_requirement <= level
         if feature.modifier_id == nil
-          features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, level_requirement: feature.level_requirement}
+          features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, level_requirement: feature.level_requirement, show: false}
         else
-          features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, modifier: {ability: feature.modifier.ability, bonus: feature.modifier.offset}, level_requirement: feature.level_requirement}
+          features_array << {from: feature.classifiable.name, name: feature.name, description: feature.description, modifier: {ability: feature.modifier.ability, bonus: feature.modifier.offset}, level_requirement: feature.level_requirement, show: false}
         end
       end
     end 
